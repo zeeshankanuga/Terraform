@@ -2,6 +2,8 @@
 
 This repository contains Terraform code to provision a robust and scalable AWS infrastructure. The infrastructure includes a Virtual Private Cloud (VPC), public and private subnets, EC2 instances, and an Application Load Balancer (ALB) with a target group. This setup is ideal for deploying highly available and secure applications on AWS.
 
+![infra](https://github.com/user-attachments/assets/61629acf-0223-459e-9a21-5e6b17e6200d)
+
 
 **Features**
 
