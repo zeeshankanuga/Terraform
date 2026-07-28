@@ -75,3 +75,13 @@ Ready to get started? Dive into the projects and take your Terraform skills to t
 
 🌟 Happy Coding! 🌟
 
+
+---
+
+## 👩‍💻 Author
+
+**Zeeshan kanuga** — Technical Architect |DevOps Engineer | Platform Engineering | AI-Augmented DevOps
+
+Built by [Zeeshan Kanuga](https://github.com/zeeshankanuga)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/zeeshankanuga/)
