@@ -1,78 +1,123 @@
-# Welcome to the World of Terraform Projects!
+# Terraform Projects 🚀
 
-## Are you ready to dive into the exciting world of Infrastructure as Code (IaC)? You've come to the right place! This repository is your one-stop destination for Terraform projects that will help you master cloud infrastructure automation. Whether you're a beginner or an experienced DevOps engineer, you'll find ready-to-use code, best practices, and innovative solutions to deploy and manage cloud resources efficiently.
+A curated collection of Terraform configurations for AWS — organized by concept, from **foundations** to **full infrastructure projects**. Each folder is a standalone Terraform example you can run to learn a specific skill.
 
-What You'll Find Here 🌟
-Real-World Terraform Projects: Explore a collection of Terraform projects designed to solve real-world infrastructure challenges.
+## Directory Structure
 
-Step-by-Step Code: Every project comes with well-documented code and explanations to help you understand and implement it with ease.
+```
+Terraform/
+├── 01-Foundations/          # Core setup: providers, backends, state locking
+├── 02-Networking/           # VPCs, subnets, routing, load balancers
+├── 03-Compute/              # EC2 instances, provisioners
+├── 04-Modules/              # Reusable module patterns
+├── 05-Advanced/             # Workspaces, imports, data sources
+├── 06-Projects/             # End-to-end infrastructure projects
+└── README.md                # ← You are here
+```
 
-Best Practices: Learn industry best practices for writing modular, reusable, and scalable Terraform code.
+---
 
-Hands-On Examples: From simple VPC setups to complex multi-cloud architectures, you'll find examples for every use case.
+## 📘 01 — Foundations
 
-Why Terraform? 🤔
-Terraform is the leading tool for Infrastructure as Code, enabling you to define, provision, and manage cloud resources using a declarative configuration language. With Terraform, you can:
+| Project | What you'll learn |
+|---|---|
+| **[s3-backend-state-locking](01-Foundations/s3-backend-state-locking/)** | S3 backend for remote state + DynamoDB state locking |
 
+## 🌐 02 — Networking
 
-Automate infrastructure deployments.
-Ensure consistency across environments.
-Version control your infrastructure.
-Collaborate with teams seamlessly.
+| Project | What you'll learn |
+|---|---|
+| **[custom-vpc-with-load-balancer](02-Networking/custom-vpc-with-load-balancer/)** | VPC, public/private subnets, route tables, IGW, NAT, Application Load Balancer |
 
+## 🖥️ 03 — Compute
 
-Projects You Can Explore 🛠️
-Here are some of the Terraform projects you'll find in this repository:
+| Project | What you'll learn |
+|---|---|
+| **[remote-exec-provisioner](03-Compute/remote-exec-provisioner/)** | EC2 with `file` and `remote-exec` provisioners, plus a demo Flask app |
 
+## 🧩 04 — Modules
 
-AWS VPC with Public and Private Subnets
-Deploy a secure and scalable VPC with public and private subnets, NAT gateways, and route tables.
-Multi-Cloud Kubernetes Cluster
-Set up a Kubernetes cluster spanning AWS using Terraform.
+| Project | What you'll learn |
+|---|---|
+| **[modular-ec2](04-Modules/modular-ec2/)** | Basic module structure — EC2 instance wrapped in a reusable module |
+| **[reusable-modules](04-Modules/reusable-modules/)** | Standalone modules for EC2, S3, KMS, and Security Groups |
 
+## 🚀 05 — Advanced
 
-CI/CD Pipeline with Terraform and GitHub Actions
-Build a CI/CD pipeline to automate Terraform deployments using GitHub Actions.
+| Project | What you'll learn |
+|---|---|
+| **[workspaces](05-Advanced/workspaces/)** | Terraform workspaces for multi-environment (dev/staging/prod) deployments |
+| **[import-existing-resources](05-Advanced/import-existing-resources/)** | Import existing AWS resources into Terraform management |
+| **[data-sources](05-Advanced/data-sources/)** | ★ **Data sources deep-dive** — query existing infra, AMI lookups, IAM policies, and more |
 
+## 🏗️ 06 — Complete Projects
 
-How to Use This Repository 🚀
-Clone the Repository:
+| Project | What you'll learn |
+|---|---|
+| **[complete-vpc-infrastructure](06-Projects/complete-vpc-infrastructure/)** | Full VPC with public/private subnets, NAT, VPC peering, EC2, SG, and null resources |
+| **[modular-infrastructure-backend](06-Projects/modular-infrastructure-backend/)** | Root module calling sub-modules with S3 backend and DynamoDB locking |
 
-git clone
-cd terraform
+---
 
+## Quick Start
 
-Explore the Projects:
-Navigate to the project folder you're interested in and follow the instructions in the README.md file.
+```bash
+# Choose a project
+cd 01-Foundations/s3-backend-state-locking
 
+# Initialize Terraform
+terraform init
 
-Run the Code:
-Initialize Terraform, review the plan, and apply the configuration to deploy the infrastructure.
+# Preview what will be created
+terraform plan
 
+# Apply the configuration
+terraform apply
+```
 
-Customize and Experiment:
-Modify the code to suit your needs and experiment with different configurations.
+> **💡 Tip:** Start with **[01-Foundations](01-Foundations/s3-backend-state-locking/)** to understand state and backends, then progress upwards through the sections.
 
+## Key Terraform Concepts Covered
 
-Join the Community 🌍
-We believe in learning together! Join our growing community of Terraform enthusiasts to:
+| Concept | Where to find it |
+|---|---|
+| **Provider configuration** | Every project — `provider.tf` |
+| **S3 Remote State + Locking** | `01-Foundations/s3-backend-state-locking/` |
+| **Variables & Outputs** | Every project — `variables.tf` / `outputs.tf` |
+| **Data Sources** | `05-Advanced/data-sources/`, `06-Projects/complete-vpc-infrastructure/data.tf` |
+| **Modules (input/output)** | `04-Modules/modular-ec2/` |
+| **Workspaces** | `05-Advanced/workspaces/` |
+| **Resource Import** | `05-Advanced/import-existing-resources/` |
+| **Provisioners** | `03-Compute/remote-exec-provisioner/` |
+| **VPC + Subnets + Routing** | `02-Networking/custom-vpc-with-load-balancer/` |
+| **VPC Peering** | `06-Projects/complete-vpc-infrastructure/8.vpc-peering.tf` |
+| **Load Balancers (ALB)** | `02-Networking/custom-vpc-with-load-balancer/` |
+| **IAM Policies** | `05-Advanced/data-sources/` (data.aws_iam_policy_document) |
+| **Security Groups** | `04-Modules/reusable-modules/sg.tf` |
 
+## How to Use This Repository
 
-Share your projects and ideas.
-Get help and support from fellow developers.
-Stay updated with the latest trends in IaC and cloud computing.
+### For Learning
+- Follow the **numbered sections** in order — each builds on concepts from the previous
+- Start with **01-Foundations** → then **02-Networking** → **03-Compute** → **04-Modules** → **05-Advanced**
+- Reference **06-Projects** to see how everything fits together
 
-Contribute 🛠️
-Got a cool Terraform project or an improvement to share? We'd love to see it!
+### For Reference
+- Need an S3 backend setup? → `01-Foundations/s3-backend-state-locking/`
+- Need an ALB example? → `02-Networking/custom-vpc-with-load-balancer/`
+- Need a module template? → `04-Modules/modular-ec2/`
+- Need data source examples? → `05-Advanced/data-sources/`
 
-Fork the repository.
-Add your project or make changes.
-Submit a pull request.
-Let's build something amazing together! 💡
+### For Production
+- The **06-Projects** section contains production-adjacent patterns
+- Combine the **reusable-modules** (`04-Modules/reusable-modules/`) with your own project structure
+- Always use **remote state + locking** for team environments
 
+---
 
-Ready to get started? Dive into the projects and take your Terraform skills to the next level! 🚀
+## About the Author
 
+<<<<<<< HEAD
 🌟 Happy Coding! 🌟
 
 
@@ -85,3 +130,8 @@ Ready to get started? Dive into the projects and take your Terraform skills to t
 Built by [Zeeshan Kanuga](https://github.com/zeeshankanuga)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/zeeshankanuga/)
+=======
+This repository was built and maintained by **Zeeshan Kanuga** as a hands-on collection of Terraform patterns for DevOps engineers. It covers real-world AWS infrastructure scenarios with clean, reusable code.
+
+**Happy Terraforming!** 🏗️
+>>>>>>> 2acecf8 (updating all files and structure)
