@@ -117,7 +117,6 @@ terraform apply
 
 ## About the Author
 
-<<<<<<< HEAD
 🌟 Happy Coding! 🌟
 
 
@@ -134,4 +133,3 @@ Built by [Zeeshan Kanuga](https://github.com/zeeshankanuga)
 This repository was built and maintained by **Zeeshan Kanuga** as a hands-on collection of Terraform patterns for DevOps engineers. It covers real-world AWS infrastructure scenarios with clean, reusable code.
 
 **Happy Terraforming!** 🏗️
->>>>>>> 2acecf8 (updating all files and structure)
